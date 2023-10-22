@@ -1,3 +1,5 @@
+//Thanwarat Sirichotevanich 6410451091
+
 package ku.atm;
 
 import io.cucumber.java.Before;
@@ -70,4 +72,13 @@ public class StepDefATM {
                      bank.getCustomer(id).getAccount().getBalance());
     }
 
+    @When("I deposit {float} to my account")
+    public void deposit(double amount){
+        atm.deposit(amount);
+    }
+
+    @Then("my account balance should be {float}")
+    public void balance(double balance){
+        assertEquals(balance, atm.getBalance());
+    }
 }
